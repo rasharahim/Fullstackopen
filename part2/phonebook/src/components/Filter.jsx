@@ -1,27 +1,25 @@
-import React from "react";
-
-const Filter = ({ search, setSearch, persons }) => {
+const Filter = ({
+  nameFilter,
+  numberFilter,
+  handleNameFilterChange,
+  handleNumberFilterChange,
+}) => {
   return (
     <div>
-      Filter shown with:{" "}
-      <input
-        type="search"
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-      />
-      {search === ""
-        ? null
-        : persons
-            .filter((person) =>
-              person.name.toLowerCase().includes(search.toLowerCase())
-            )
-            .map((person) => {
-              return (
-                <li key={person.name}>
-                  {person.name} : {person.number}
-                </li>
-              );
-            })}
+      <div>
+        <input
+          value={nameFilter}
+          onChange={handleNameFilterChange}
+          placeholder="Search by name"
+        />
+      </div>
+      <div>
+        <input
+          value={numberFilter}
+          onChange={handleNumberFilterChange}
+          placeholder="Search by number"
+        />
+      </div>
     </div>
   );
 };

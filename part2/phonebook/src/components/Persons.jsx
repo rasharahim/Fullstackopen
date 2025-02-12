@@ -1,15 +1,24 @@
-import React from "react";
+const Persons = ({ nameFilter, numberFilter, allPersons, handleRemove }) => {
+  const filteredPersons = () => {
+    return allPersons.filter((person) =>
+      person.name.toLowerCase().includes(nameFilter.toLowerCase().trim()) &&
+      person.number.includes(numberFilter.trim())
+    );
+  };
 
-const Persons = ({ persons, handleDelete }) => {
+  const persons = filteredPersons();
+
   return (
-    <ul>
-      {persons.map((person, index) => (
-        <li key={index}>
+    <div>
+      {persons.map((person) => (
+        <p key={person.id}>
           {person.name} {person.number}
-          <button onClick={() => handleDelete(person.id)}>Delete</button>
-        </li>
+          <button onClick={() => handleRemove(person.id, person.name)}>
+            delete
+          </button>
+        </p>
       ))}
-    </ul>
+    </div>
   );
 };
 
