@@ -109,7 +109,7 @@ const App = () => {
         handleSubmit={handleSubmit}
         handleFormChange={handleFormChange}
       />
-      <h3>Numbers</h3>
+      <h3>NUMBERS</h3>
       <Persons
         nameFilter={nameFilter}
         numberFilter={numberFilter}
